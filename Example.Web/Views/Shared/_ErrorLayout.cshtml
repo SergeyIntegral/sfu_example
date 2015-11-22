@@ -1,0 +1,18 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>@ViewBag.Title</title>
+        @Styles.Render("~/Content/inspinia")
+        @Styles.Render("~/font-awesome/css")
+    </head>
+    <body class="gray-bg">
+    <div class="middle-box text-center animated fadeInDown">
+        @RenderBody()
+    </div>
+        <!-- Section for main scripts render -->
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+    </body>
+</html>

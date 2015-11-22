@@ -1,0 +1,21 @@
+﻿@model HandleErrorInfo
+@{
+    ViewBag.Title = "Неизвестная ошибка";
+    Layout = "_ErrorLayout.cshtml";
+}
+
+<h1>Ops!</h1>
+<h3 class="font-bold">Неизвестная ошибка</h3>
+<div class="error-desc">
+    @if (ViewBag.Debug != null && ViewBag.Debug && Model != null)
+    {
+        Html.RenderPartial("_DebugErrorPartial", Model);
+    }
+    else
+    {
+        <text>
+            Произошла неизвестная ошибка. Попробуйте повторить запрос позднее.
+            <a href="/" class="btn btn-primary btn-block m-t">Перейти на главную</a>
+        </text>
+    }
+</div>

@@ -1,0 +1,12 @@
+﻿@model HandleErrorInfo
+
+@if (ViewBag.BeforeErrorRawUrl != null)
+{
+    <text>Url: @ViewBag.BeforeErrorRawUrl<br/></text>
+}
+Controller: @Model.ControllerName, Action: @Model.ActionName
+<br />
+@Model.Exception.Message
+<pre>
+@Model.Exception.StackTrace
+</pre>
