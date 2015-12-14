@@ -93,13 +93,13 @@ namespace Example.Web.Controllers
 		{
 			try
 			{
-				_sectionService.Remove(model.Id);
+				//_sectionService.Remove(model.Id);
 				return Json(new { state = true });
 			}
 			catch (Exception exception)
             {
                 ExampleContext.Log.Error("SectionController.Delete", exception);
-                return Json(new { state = true, message = "Error while deleting section." });
+                return Json(new { state = false, message = "Error while deleting section." });
             }
 		}
     }

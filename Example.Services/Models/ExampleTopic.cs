@@ -20,6 +20,8 @@ namespace Example.Services.Models
 
         public ExampleUser Author { get; set; }
 
+        public int SectionId { get; set; }
+
         public ExampleSection Section { get; set; }
 
         public ExampleTopic()
@@ -39,6 +41,7 @@ namespace Example.Services.Models
             ModifiedDate = entity.ModifiedDate;
             Status = entity.Status;
             Author = entity.Author;
+            SectionId = entity.SectionId;
             Section = new ExampleSection(entity.Section, false);
         }
 
@@ -54,6 +57,7 @@ namespace Example.Services.Models
             ModifiedDate = entity.ModifiedDate;
             Status = entity.Status;
             Author = entity.Author;
+            SectionId = entity.SectionId;
             Section = section;
         }
     }

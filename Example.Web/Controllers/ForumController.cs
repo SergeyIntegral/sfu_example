@@ -14,6 +14,8 @@ namespace Example.Web.Controllers
 
 		public ActionResult Index(int? id)
 		{
+		    ViewBag.IsRootSections = id != null;
+
 		    var sections = id == null 
                          ? _sectionService.GetRootSections() 
                          : _sectionService.Find(id.Value);

@@ -7,7 +7,7 @@ namespace Example.DAL.Entities
     public class Message : IntEntity, IDatesEntity
     {
         [Required]
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
         public virtual ExampleUser Author { get; set; }
 
         [Required]

@@ -17,14 +17,14 @@ namespace Example.DAL.Entities
         public TopicStatus Status { get; set; }
 
         [Required]
-        public int AuthorId { get; set; }
+        public string AuthorId { get; set; }
         public virtual ExampleUser Author { get; set; }
         
         [Required]
         public int SectionId { get; set; }
         public virtual Section Section { get; set; }
 
-        public int PictureId { get; set; }
+        public int? PictureId { get; set; }
         public virtual BinaryData Picture { get; set; }
 
         public DateTime CreatedDate { get; set; }
