@@ -15,9 +15,10 @@ namespace Example.DAL.Migrations
 
         protected override void Seed(Example.DAL.ExampleDbContext context)
         {
-
+	        if (context.Users.Any())
+				return;
             var seed = new DatabaseSeed(context);
-            seed.SeedUsers();
+            seed.SeedUsersAndRoles();
         }
     }
 }

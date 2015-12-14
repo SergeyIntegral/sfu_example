@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Security.Principal;
-using Example.Services.Models;
+using Example.DAL.Entities;
 using log4net;
 
 namespace Example.Services.Context

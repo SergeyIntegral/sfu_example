@@ -8,6 +8,37 @@ namespace Example.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            bundles.Add(new StyleBundle("~/Example/styles").Include(
+                      "~/Content/bootstrap.css",
+                      "~/Content/font-awesome.css",
+                      "~/Content/animate.css",
+                      "~/Content/style.css"));
+
+            bundles.Add(new StyleBundle("~/Example/anonymous/styles").Include(
+                "~/Content/bootstrap.css",
+                "~/Content/font-awesome.css",
+                "~/Content/animate.css",
+                "~/Content/style.css"));
+
+            bundles.Add(new ScriptBundle("~/Example/scripts").Include(
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/respond.js",
+                "~/Scripts/plugins/metisMenu/jquery.metisMenu.js",
+                "~/Scripts/plugins/slimscroll/jquery.slimscroll.min.js",
+                "~/Scripts/inspinia.js",
+                "~/Scripts/plugins/pace/pace.min.js",
+                "~/Scripts/toastr.min.js"));
+
+            bundles.Add(new ScriptBundle("~/Example/anonymous/scripts").Include(
+                "~/Scripts/jquery-{version}.js",
+                "~/Scripts/bootstrap.js",
+                "~/Scripts/respond.js",
+                "~/Scripts/plugins/slimscroll/jquery.slimscroll.min.js",
+                "~/Scripts/inspinia.js"));
+
+            ////////////////////////////////////////////////////////////////////////////////////////////////////
+
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
@@ -23,9 +54,6 @@ namespace Example.Web
                       "~/Scripts/bootstrap.js",
                       "~/Scripts/respond.js"));
 
-            bundles.Add(new StyleBundle("~/Content/css").Include(
-                      "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
         }
     }
 }

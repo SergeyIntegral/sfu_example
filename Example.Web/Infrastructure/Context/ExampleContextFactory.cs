@@ -1,8 +1,13 @@
 ﻿using System;
 using System.Security.Principal;
+using System.Threading.Tasks;
 using System.Web;
+using System.Web.Mvc;
+using Example.DAL.Entities;
 using Example.Services.Context;
+using Example.Services.Managers;
 using log4net;
+using Microsoft.AspNet.Identity;
 
 namespace Example.Web.Infrastructure.Context
 {
@@ -11,7 +16,8 @@ namespace Example.Web.Infrastructure.Context
         private const string ExampleContextKey = "MPRequestContext";
 
         private readonly Func<ExampleContext> _httpContextFunc;
-        private readonly Func<IPrincipal> _userFunc;
+        private readonly Func<IPrincipal> _principalFunc;
+        private readonly Func<IPrincipal, ExampleUser> _userFunc; 
 
         public ExampleContextFactory()
         {
@@ -42,7 +48,17 @@ namespace Example.Web.Infrastructure.Context
 
             #region IPrincipal (HttpContext.Current.User)
 
-            _userFunc = () => HttpContext.Current.User;
+            _principalFunc = () => HttpContext.Current.User;
+
+            #endregion
+
+            #region Current ExampleUser
+
+            _userFunc = (principal) =>
+            {
+                var mngr = DependencyResolver.Current.GetService<ExampleUserManager>();
+                return mngr.FindByNameOrEmail(principal.Identity.Name);
+            };
 
             #endregion
         }
@@ -59,7 +75,12 @@ namespace Example.Web.Infrastructure.Context
 
         public override IPrincipal GetPrincipal()
         {
-            return _userFunc();
+            return _principalFunc();
+        }
+
+        public override ExampleUser GetUser(IPrincipal principal)
+        {
+            return _userFunc(principal);
         }
     }
 }

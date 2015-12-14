@@ -1,0 +1,176 @@
+﻿@using Example.Core.Consts
+@using Example.Web.Models
+@model Example.Services.Models.ExampleSection
+
+@{
+    ViewBag.Title = "Forum";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>@ViewBag.Title</h2>
+        @if (Model.ParentSectionId != null && Model.ParentSection != null)
+        {
+            @Html.Partial("_BreadCrumbs", new[]
+            {
+                new BreadCrumbItem("SFU Example", "Forum", "Index"),
+                new BreadCrumbItem(Model.ParentSection.Title, Url.Action("Index", "Forum", new { id = Model.ParentSectionId }))
+            })
+        }
+        else
+        {
+            @Html.Partial("_BreadCrumbs", new[] { new BreadCrumbItem("SFU Example", "Forum", "Index") })
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="wrapper wrapper-content animated fadeInUp">
+
+            <p>@Model.Description</p>
+            @Html.AntiForgeryToken()
+            <div class="ibox">
+                <div class="ibox-title">
+                    <h5>Forum sections</h5>
+                    <div class="ibox-tools">
+                        @if (Request.IsAuthenticated
+                && (User.IsInRole(UserRoles.Administrator)
+                    || User.IsInRole(UserRoles.Moderator)))
+                        {
+                            <a href="@Url.Action("Create", "Section", new {id = Model.Id})" class="btn btn-primary btn-xs">Create new section</a>
+                        }
+                        @if (Request.IsAuthenticated
+                && (User.IsInRole(UserRoles.Administrator)
+                    || User.IsInRole(UserRoles.Moderator)
+                    || User.IsInRole(UserRoles.User)))
+                        {
+                            <a href="@Url.Action("Create", "Topic", new {id = Model.Id})" class="btn btn-primary btn-xs">Create new topic</a>
+                        }
+                    </div>
+                </div>
+                <div class="ibox-content">
+                    @if ((Model.ChildSections != null && Model.ChildSections.Any()) || (Model.Topics != null && Model.Topics.Any()))
+                    {
+                        <div class="project-list">
+
+                            <table class="table table-hover">
+                                <tbody>
+                                    @if (Model.ChildSections != null)
+                                    {
+                                        foreach (var exampleSection in Model.ChildSections)
+                                        {
+                                            <tr>
+                                                <td class="project-status">
+                                                    <span class="label label-primary">Active</span>
+                                                </td>
+                                                <td class="project-title">
+                                                    @Html.ActionLink(exampleSection.Title, "Index", new { id = exampleSection.Id })
+                                                    <br>
+                                                    <small>@exampleSection.CreatedDate.ToString("dd-MM-yyyy hh:mm:ss")</small>
+                                                </td>
+                                                @if (Request.IsAuthenticated
+                            && (User.IsInRole(UserRoles.Administrator)
+                                || User.IsInRole(UserRoles.Moderator)))
+                                                {
+                                                    <td class="project-actions">
+                                                        <a href="@Url.Action("Edit", "Section", new {id = exampleSection.Id})" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                                                        <a href="javascript:confirmRemoving('@exampleSection.Title', @exampleSection.Id)" class="btn btn-white btn-sm"><i class="fa fa-remove"></i> Delete </a>
+                                                    </td>
+                                                }
+                                            </tr>
+                                        }
+                                    }
+                                    @if (Model.Topics != null)
+                                    {
+                                        foreach (var exampleTopic in Model.Topics)
+                                        {
+                                            <tr>
+                                                <td class="project-status">
+                                                    <span class="label label-primary">Active</span>
+                                                </td>
+                                                <td class="project-title">
+                                                    @Html.ActionLink(exampleTopic.Title, "Index", new { sectionId = exampleTopic.Id })
+                                                    <br>
+                                                    <small>@exampleTopic.CreatedDate.ToString("dd-MM-yyyy hh:mm:ss")</small>
+                                                </td>
+                                                @if (Request.IsAuthenticated
+                            && (User.IsInRole(UserRoles.Administrator)
+                                || User.IsInRole(UserRoles.Moderator)))
+                                                {
+                                                    <td class="project-actions">
+                                                        <a href="@Url.Action("Edit", "Topic", new {id = exampleTopic.Id})" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+                                                        <a href="@Url.Action("Delete", "Topic", new {id = exampleTopic.Id})" class="btn btn-white btn-sm"><i class="fa fa-remove"></i> Delete </a>
+                                                    </td>
+                                                }
+                                            </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div id="confirmModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Confirm action</h4>
+            </div>
+            <div class="modal-body">
+                <p id="confirmModalBody">Confirm removing Section?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
+                <a id="confirmModalOk" href="javascript:" class="btn btn-primary">Yes</a>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts
+{
+    <script type="text/javascript">
+        toastr.options = {
+            closeButton: true,
+            debug: false,
+            progressBar: true,
+            positionClass: 'toast-top-right',
+            onclick: null
+        };
+
+        function confirmRemoving(name, id) {
+            if (name && id) {
+                $('#confirmModalBody').text('Confirm removing "' + name + '"?');
+                $('#confirmModalOk').attr('href', 'javascript:remove(' + id + ');');
+                $('#confirmModal').modal('show');
+            }
+        }
+
+        function remove(id) {
+            var token = $('input[name="__RequestVerificationToken"]').val();
+
+            $.ajax({
+                url: '/Section/Delete',
+                type: 'POST',
+                data: { __RequestVerificationToken: token, id: id },
+                success: function(result) {
+                    if (result.state) {
+                        window.location.reload(true);
+                    } else {
+                        toastr.error(result.message);
+                    }
+                },
+                error: function(data) {
+                    toastr.error(data);
+                }
+            });
+        }
+    </script>
+}

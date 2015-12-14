@@ -1,0 +1,58 @@
+﻿@using Example.Web.Models
+@model Example.Services.Models.ExampleSection
+
+@{
+    ViewBag.Title = "Edit Section";
+}
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-sm-4">
+        <h2>@ViewBag.Title</h2>
+        @if (Model.ParentSectionId != null && Model.ParentSection != null)
+        {
+            @Html.Partial("_BreadCrumbs", new[]
+            {
+                new BreadCrumbItem("SFU Example", "Forum", "Index"),
+                new BreadCrumbItem(Model.ParentSection.Title, Url.Action("Index", "Forum", new { id = Model.ParentSectionId }))
+            })
+        }
+        else
+        {
+            @Html.Partial("_BreadCrumbs", new[] { new BreadCrumbItem("SFU Example", "Forum", "Index") })
+        }
+    </div>
+</div>
+
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </div>
+    </div>
+}

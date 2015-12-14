@@ -1,13 +1,15 @@
-﻿using System.Data.Entity.Migrations;
+﻿using System;
+using System.Data.Entity.Migrations;
 using System.Data.Entity.Validation;
 using System.Text;
 using Example.Core.Consts;
 using Example.DAL.Entities;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Example.DAL
 {
-    internal partial class DatabaseSeed
+    internal class DatabaseSeed
     {
         private readonly ExampleDbContext _dbContext;
 
@@ -40,54 +42,105 @@ namespace Example.DAL
             }
         }
 
-        public void SeedUsers()
+        public void SeedUsersAndRoles()
         {
-            var hasher = new PasswordHasher();
-           
+            #region Roles
+
+            var anonymousRole = new IdentityRole(UserRoles.Anonymous);
+            var userRole = new IdentityRole(UserRoles.User);
+            var moderatorRole = new IdentityRole(UserRoles.Moderator);
+            var administratorRole = new IdentityRole(UserRoles.Administrator);
+
+            _dbContext.Roles.AddOrUpdate(anonymousRole);
+            _dbContext.Roles.AddOrUpdate(userRole);
+            _dbContext.Roles.AddOrUpdate(moderatorRole);
+            _dbContext.Roles.AddOrUpdate(administratorRole);
+
+            _dbContext.SaveChanges();
+
+            #endregion
+
             #region Users
 
-            var administrator = new User
+            var hasher = new PasswordHasher();
+
+            var administrator = new ExampleUser
             {
                 Id = "Administrator",
                 FullName = "Administrator",
-                UserName = "administrator@localhost.net",
+                UserName = "Administrator",
                 Email = "administrator@localhost.net",
                 PasswordHash = hasher.HashPassword("Password!1"),
-                Role = UserRoles.Administrator,
                 LockoutEnabled = false,
-                AccessFailedCount = 0
+                AccessFailedCount = 0,
+                SecurityStamp = Guid.NewGuid().ToString()
             };
             _dbContext.Users.AddOrUpdate(administrator);
 
-            var moderator = new User
+            var moderator = new ExampleUser
             {
                 Id = "Moderator",
                 FullName = "Moderator",
-                UserName = "moderator@localhost.net",
+                UserName = "moderator",
                 Email = "moderator@localhost.net",
                 PasswordHash = hasher.HashPassword("Password!1"),
-                Role = UserRoles.Moderator,
                 LockoutEnabled = false,
-                AccessFailedCount = 0
+                AccessFailedCount = 0,
+                SecurityStamp = Guid.NewGuid().ToString()
             };
             _dbContext.Users.AddOrUpdate(moderator);
 
-            var user = new User
+            var user1 = new ExampleUser
             {
-                Id = "User",
-                FullName = "User",
-                UserName = "user@localhost.net",
-                Email = "user@localhost.net",
+                Id = "User1",
+                FullName = "User One",
+                UserName = "user1",
+                Email = "user.one@localhost.net",
                 PasswordHash = hasher.HashPassword("Password!1"),
-                Role = UserRoles.User,
                 LockoutEnabled = false,
-                AccessFailedCount = 0
+                AccessFailedCount = 0,
+                SecurityStamp = Guid.NewGuid().ToString()
             };
-            _dbContext.Users.AddOrUpdate(user);
+            _dbContext.Users.AddOrUpdate(user1);
+
+            var user2 = new ExampleUser
+            {
+                Id = "User2",
+                FullName = "User Two",
+                UserName = "user2",
+                Email = "user.two@localhost.net",
+                PasswordHash = hasher.HashPassword("Password!1"),
+                LockoutEnabled = false,
+                AccessFailedCount = 0,
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+            _dbContext.Users.AddOrUpdate(user2);
+
+            var user3 = new ExampleUser
+            {
+                Id = "User3",
+                FullName = "User Three",
+                UserName = "user3",
+                Email = "user.three@localhost.net",
+                PasswordHash = hasher.HashPassword("Password!1"),
+                LockoutEnabled = false,
+                AccessFailedCount = 0,
+                SecurityStamp = Guid.NewGuid().ToString()
+            };
+            _dbContext.Users.AddOrUpdate(user3);
 
             SaveChanges();
 
             #endregion
+
+
+            _dbContext.UserRoles.AddOrUpdate(new IdentityUserRole {RoleId = administratorRole.Id, UserId = administrator.Id});
+            _dbContext.UserRoles.AddOrUpdate(new IdentityUserRole {RoleId = moderatorRole.Id, UserId = moderator.Id});
+            _dbContext.UserRoles.AddOrUpdate(new IdentityUserRole {RoleId = userRole.Id, UserId = user1.Id});
+            _dbContext.UserRoles.AddOrUpdate(new IdentityUserRole {RoleId = userRole.Id, UserId = user2.Id});
+            _dbContext.UserRoles.AddOrUpdate(new IdentityUserRole {RoleId = userRole.Id, UserId = user3.Id});
+
+            SaveChanges();
         }
     }
 }

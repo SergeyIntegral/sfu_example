@@ -18,7 +18,7 @@ namespace Example.DAL.Entities
 
         [Required]
         public int AuthorId { get; set; }
-        public virtual User Author { get; set; }
+        public virtual ExampleUser Author { get; set; }
         
         [Required]
         public int SectionId { get; set; }

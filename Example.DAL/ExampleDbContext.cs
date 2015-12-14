@@ -4,10 +4,11 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Threading.Tasks;
 using Example.DAL.Entities;
 using Example.DAL.Entities.Abstract;
+using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace Example.DAL
 {
-    public class ExampleDbContext : DbContext
+    public class ExampleDbContext : IdentityDbContext<ExampleUser>
     {
         private static readonly string _connectionStringName = "ExampleContext";
 
@@ -22,7 +23,11 @@ namespace Example.DAL
 
         #region DbSets
 
-        public DbSet<User> Users { get; set; }
+        public DbSet<IdentityUserClaim> Claims { get; set; }
+        public DbSet<IdentityUserRole> UserRoles { get; set; }
+        public DbSet<IdentityUserLogin> Logins { get; set; }
+        //public DbSet<IdentityRole> Roles { get; set; } // already contains by default
+        //public DbSet<ExampleUser> Users { get; set; } // already contains by default
         public DbSet<Topic> Topics { get; set; }
         public DbSet<Message> Messages { get; set; }
         public DbSet<Section> Sections { get; set; }
@@ -70,7 +75,12 @@ namespace Example.DAL
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
 
+            modelBuilder.Entity<Section>()
+                .HasOptional(x => x.Parent)
+                .WithMany(x => x.ChildSections)
+                .Map(x => x.MapKey("Parent_Id"));
+
             base.OnModelCreating(modelBuilder);
         }
-    }
+	}
 }

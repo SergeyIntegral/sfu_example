@@ -62,16 +62,24 @@
     <Compile Include="Entities\Abstract\IDatesEntity.cs" />
     <Compile Include="Entities\Abstract\IEntity.cs" />
     <Compile Include="Entities\BinaryData.cs" />
+    <Compile Include="Entities\ExampleUser.cs" />
     <Compile Include="Entities\Message.cs" />
     <Compile Include="Entities\Section.cs" />
     <Compile Include="Entities\Topic.cs" />
-    <Compile Include="Entities\User.cs" />
     <Compile Include="IDbContextProvider.cs" />
     <Compile Include="ExampleDbContextProvider.cs" />
     <Compile Include="ExampleDbContext.cs" />
-    <Compile Include="Migrations\201511221029255_Initialize.cs" />
-    <Compile Include="Migrations\201511221029255_Initialize.Designer.cs">
-      <DependentUpon>201511221029255_Initialize.cs</DependentUpon>
+    <Compile Include="Migrations\201512131422468_Initialize.cs" />
+    <Compile Include="Migrations\201512131422468_Initialize.Designer.cs">
+      <DependentUpon>201512131422468_Initialize.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512140405166_SectionChilds.cs" />
+    <Compile Include="Migrations\201512140405166_SectionChilds.Designer.cs">
+      <DependentUpon>201512140405166_SectionChilds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512140420044_SectionChilds1.cs" />
+    <Compile Include="Migrations\201512140420044_SectionChilds1.Designer.cs">
+      <DependentUpon>201512140420044_SectionChilds1.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,15 +88,10 @@
     <Compile Include="Repositories\Base\StringRepository.cs" />
     <Compile Include="Repositories\Abstract\IRepository.cs" />
     <Compile Include="Repositories\BinaryDataRepository.cs" />
-    <Compile Include="Repositories\MessageRepository.cs" />
     <Compile Include="Repositories\ExampleUserStore.cs" />
+    <Compile Include="Repositories\MessageRepository.cs" />
     <Compile Include="Repositories\SectionRepository.cs" />
     <Compile Include="Repositories\TopicRepository.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201511221029255_Initialize.resx">
-      <DependentUpon>201511221029255_Initialize.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -98,6 +101,17 @@
       <Project>{dc9f92f9-e8cf-41ba-8630-8ebbfb5cb823}</Project>
       <Name>Example.Core</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512131422468_Initialize.resx">
+      <DependentUpon>201512131422468_Initialize.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512140405166_SectionChilds.resx">
+      <DependentUpon>201512140405166_SectionChilds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512140420044_SectionChilds1.resx">
+      <DependentUpon>201512140420044_SectionChilds1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

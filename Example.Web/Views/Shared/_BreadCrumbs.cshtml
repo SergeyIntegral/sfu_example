@@ -1,0 +1,30 @@
+﻿@using Example.Web.Models
+@model IEnumerable<BreadCrumbItem>
+
+@if (Model != null && Model.Any())
+{
+    <ol class='breadcrumb'>
+        @foreach (var item in Model)
+        {
+            switch (item.Type)
+            {
+                case BreadCrumbTypes.Link:
+                    {
+                        <li><a href="@item.Url">@item.Text</a></li>
+                        break;
+                    }
+                case BreadCrumbTypes.MvcAction:
+                    {
+                        <li>@Html.ActionLink(item.Text, item.Action, item.Controller)</li>
+                        break;
+                    }
+                case BreadCrumbTypes.Text:
+                default:
+                    {
+                        <li><span>@item.Text</span></li>
+                        break;
+                    }
+            }
+        }
+    </ol>
+}
