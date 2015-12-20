@@ -92,20 +92,21 @@ namespace Example.Services.Services
         {
             if (section.ChildSections != null)
             {
-                foreach (var childSection in section.ChildSections)
+                while (section.ChildSections.Any())
                 {
-                    removeRecursive(childSection);
+                    removeRecursive(section.ChildSections.First());
                 }
             }
             if (section.Topics != null)
             {
-                foreach (var topic in section.Topics)
+                while (section.Topics.Any())
                 {
+                    var topic = section.Topics.First();
                     if (topic.Messages != null)
                     {
-                        foreach (var message in topic.Messages)
+                        while (topic.Messages.Any())
                         {
-                            _messageRepository.Delete(message.Id);
+                            _messageRepository.Delete(topic.Messages.First().Id);
                         }
                     }
                     _topicRepository.Delete(topic.Id);

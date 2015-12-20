@@ -1,0 +1,22 @@
+﻿@using System.Web.Mvc.Html
+@using Example.Web.Infrastructure.Extensions
+@model Example.Services.Models.ExampleTopic
+    
+<tr id="topic_row_@Model.Id">
+    <td class="project-status">
+        @Html.Partial("_TopicStatusPartial", Model.Status)
+    </td>
+    <td class="project-title">
+        <a href="@Url.Action("Detail", "Topic", new {id = Model.Id})">@Model.Title</a>
+        <br>
+        <small>@Model.CreatedDate.ToString("dd-MM-yyyy hh:mm:ss")</small>
+    </td>
+    @if (User.CanManageTopic(Model.Author))
+    {
+        <td class="project-actions">
+            <a href="@Url.Action("Edit", "Topic", new {id = Model.Id})" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
+            <a href="javascript:confirmRemoving('@Model.Title', @Model.Id, 'topic')" class="btn btn-white btn-sm"><i class="fa fa-remove"></i> Delete </a>
+        </td>
+    }
+</tr>
+

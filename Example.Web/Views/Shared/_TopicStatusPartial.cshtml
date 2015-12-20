@@ -1,0 +1,21 @@
+﻿@using Example.Core.Consts
+@model TopicStatus
+    
+@switch (Model)
+{
+    case TopicStatus.Draft:
+        {
+            <span class="label label-danger">@Model.ToString()</span>
+            break;
+        }
+    case TopicStatus.NotApproved:
+        {
+            <span class="label label-warning">@Model.ToString()</span>
+            break;
+        }
+    default:
+        {
+            <span class="label label-primary">@Model.ToString()</span>
+            break;
+        }
+}

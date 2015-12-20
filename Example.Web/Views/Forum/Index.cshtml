@@ -1,4 +1,4 @@
-﻿@using Example.Core.Consts
+﻿@using Example.Web.Infrastructure.Extensions
 @using Example.Web.Models
 @model Example.Services.Models.ExampleSection
 
@@ -11,7 +11,7 @@
         <h2>@ViewBag.Title</h2>
         @if (Model.ParentSectionId != null && Model.ParentSection != null)
         {
-            @Html.Partial("_BreadCrumbs", new[]
+        @Html.Partial("_BreadCrumbs", new[]
             {
                 new BreadCrumbItem("SFU Example", "Forum", "Index"),
                 new BreadCrumbItem(Model.ParentSection.Title, Url.Action("Index", "Forum", new { id = Model.ParentSectionId }))
@@ -19,7 +19,7 @@
         }
         else
         {
-            @Html.Partial("_BreadCrumbs", new[] { new BreadCrumbItem("SFU Example", "Forum", "Index") })
+        @Html.Partial("_BreadCrumbs", new[] { new BreadCrumbItem("SFU Example", "Forum", "Index") })
         }
     </div>
 </div>
@@ -35,16 +35,11 @@
                 <div class="ibox-title">
                     <h5>Sections</h5>
                     <div class="ibox-tools">
-                        @if (Request.IsAuthenticated
-                 && (User.IsInRole(UserRoles.Administrator)
-                     || User.IsInRole(UserRoles.Moderator)))
+                        @if (User.CanManageSection())
                         {
                             <a href="@Url.Action("Create", "Section", new {id = Model.Id})" class="btn btn-primary btn-xs">Create new section</a>
                         }
-                        @if ((bool)ViewBag.IsRootSections && Request.IsAuthenticated
-                 && (User.IsInRole(UserRoles.Administrator)
-                     || User.IsInRole(UserRoles.Moderator)
-                     || User.IsInRole(UserRoles.User)))
+                        @if ((bool)ViewBag.IsRootSections && User.CanCreateTopic())
                         {
                             <a href="@Url.Action("Create", "Topic", new {id = Model.Id})" class="btn btn-primary btn-xs">Create new topic</a>
                         }
@@ -59,22 +54,7 @@
                                 <tbody>
                                     @foreach (var exampleSection in Model.ChildSections)
                                     {
-                                        <tr id="section_row_@exampleSection.Id">
-                                            <td class="project-title">
-                                                @Html.ActionLink(exampleSection.Title, "Index", new { id = exampleSection.Id })
-                                                <br>
-                                                <small>@exampleSection.CreatedDate.ToString("dd-MM-yyyy hh:mm:ss")</small>
-                                            </td>
-                                            @if (Request.IsAuthenticated
-                         && (User.IsInRole(UserRoles.Administrator)
-                             || User.IsInRole(UserRoles.Moderator)))
-                                            {
-                                                <td class="project-actions">
-                                                    <a href="@Url.Action("Edit", "Section", new {id = exampleSection.Id})" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
-                                                    <a href="javascript:confirmRemoving('@exampleSection.Title', @exampleSection.Id)" class="btn btn-white btn-sm"><i class="fa fa-remove"></i> Delete </a>
-                                                </td>
-                                            }
-                                        </tr>
+                                        @Html.Partial("_SectionRowPartial", exampleSection)
                                     }
                                 </tbody>
                             </table>
@@ -89,65 +69,26 @@
                     <div class="ibox-title">
                         <h5>Topics</h5>
                         <div class="ibox-tools">
-                            @if ((bool) ViewBag.IsRootSections && Request.IsAuthenticated
-                     && (User.IsInRole(UserRoles.Administrator)
-                         || User.IsInRole(UserRoles.Moderator)
-                         || User.IsInRole(UserRoles.User)))
-                {
-                <a href="@Url.Action("Create", "Topic", new {id = Model.Id})" class="btn btn-primary btn-xs">Create new topic</a>
-                }
+                            @if ((bool)ViewBag.IsRootSections && User.CanCreateTopic())
+                            {
+                                <a href="@Url.Action("Create", "Topic", new {id = Model.Id})" class="btn btn-primary btn-xs">Create new topic</a>
+                            }
                         </div>
                     </div>
                     <div class="ibox-content">
                         @if (Model.Topics != null && Model.Topics.Any())
-            {
-            <div class="project-list">
-
-                <table class="table table-hover">
-                    <tbody>
-                        @foreach (var exampleTopic in Model.Topics)
                         {
-                            <tr id="topic_row_@exampleTopic.Id">
-                                <td class="project-status">
-                                    @switch (exampleTopic.Status)
-                                    {
-                                        case TopicStatus.Draft:
-                                            {
-                                                <span class="label label-danger">@exampleTopic.Status.ToString()</span>
-                                                break;
-                                            }
-                                        case TopicStatus.NotApproved:
-                                            {
-                                                <span class="label label-warning">@exampleTopic.Status.ToString()</span>
-                                                break;
-                                            }
-                                        default:
-                                            {
-                                                <span class="label label-primary">@exampleTopic.Status.ToString()</span>
-                                                break;
-                                            }
-                                    }
-                                </td>
-                                <td class="project-title">
-                                    <a href="@Url.Action("Detail", "Topic", new {id = exampleTopic.Id})">@exampleTopic.Title</a>
-                                    <br>
-                                    <small>@exampleTopic.CreatedDate.ToString("dd-MM-yyyy hh:mm:ss")</small>
-                                </td>
-                                @if (Request.IsAuthenticated
-                                     && (User.IsInRole(UserRoles.Administrator)
-                                         || User.IsInRole(UserRoles.Moderator)))
-                                {
-                                <td class="project-actions">
-                                    <a href="@Url.Action("Edit", "Topic", new {id = exampleTopic.Id})" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
-                                    <a href="@Url.Action("Delete", "Topic", new {id = exampleTopic.Id})" class="btn btn-white btn-sm"><i class="fa fa-remove"></i> Delete </a>
-                                </td>
-                                }
-                            </tr>
+                            <div class="project-list">
+                                <table class="table table-hover">
+                                    <tbody>
+                                        @foreach (var exampleTopic in Model.Topics)
+                                        {
+                                            @Html.Partial("_TopicRowPartial", exampleTopic)
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
                         }
-                    </tbody>
-                </table>
-            </div>
-            }
                     </div>
                 </div>
 
@@ -186,31 +127,47 @@
             onclick: null
         };
 
-        function confirmRemoving(name, id) {
-            if (name && id) {
+        function confirmRemoving(name, id, what) {
+            if (name && id && what) {
                 $('#confirmModalBody').text('Confirm removing "' + name + '"?');
-                $('#confirmModalOk').attr('href', 'javascript:remove(' + id + ');');
+                $('#confirmModalOk').attr('href', 'javascript:remove(' + id + ',"' + what + '");');
                 $('#confirmModal').modal('show');
             }
         }
 
-        function remove(id) {
+        function remove(id, what) {
             var token = $('input[name="__RequestVerificationToken"]').val();
 
+            var url = null, callback;
+            if (what === 'section') {
+                url = '/Section/Delete';
+                callback = function () {
+                    $('#section_row_' + id).remove();
+                };
+            } else if (what === 'topic') {
+                url = '/Topic/Delete';
+                callback = function () {
+                    $('#topic_row_' + id).remove();
+                };
+            }
+
+            if (url === null)
+                return;
+
             $.ajax({
-                url: '/Section/Delete',
+                url: url,
                 type: 'POST',
                 data: { __RequestVerificationToken: token, id: id },
                 success: function (result) {
+                    $('#confirmModal').modal('hide');
                     if (result.state) {
-                        //window.location.reload(true);
-                        $('#section_row_' + id).remove();
-                        $('#confirmModal').modal('hide');
+                        callback();
                     } else {
                         toastr.error(result.message);
                     }
                 },
                 error: function (data) {
+                    $('#confirmModal').modal('hide');
                     toastr.error(data);
                 }
             });

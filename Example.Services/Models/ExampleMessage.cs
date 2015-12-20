@@ -1,12 +1,16 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 using Example.DAL.Entities;
+using Example.Services.Context;
 
 namespace Example.Services.Models
 {
     public class ExampleMessage
     {
+        [Required]
         public int Id { get; set; }
 
+        [Required]
         public string Text { get; set; }
 
         public DateTime CreatedDate { get; set; }
@@ -15,9 +19,12 @@ namespace Example.Services.Models
 
         public ExampleUser Author { get; set; }
 
+        [Required]
         public int TopicId { get; set; }
 
         public ExampleTopic Topic { get; set; }
+
+        public bool IsMine { get; set; }
 
         public ExampleMessage()
         {
@@ -31,6 +38,7 @@ namespace Example.Services.Models
             CreatedDate = entity.CreatedDate;
             ModifiedDate = entity.ModifiedDate;
             Author = entity.Author;
+            IsMine = ExampleContext.Current.User.Id == entity.AuthorId;
             TopicId = entity.TopicId;
             Topic = new ExampleTopic(entity.Topic);
         }
@@ -42,6 +50,7 @@ namespace Example.Services.Models
             CreatedDate = entity.CreatedDate;
             ModifiedDate = entity.ModifiedDate;
             Author = entity.Author;
+            IsMine = ExampleContext.Current.User.Id == entity.AuthorId;
             TopicId = topic.Id;
             Topic = topic;
         }

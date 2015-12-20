@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Example.Web
 {
@@ -12,7 +11,13 @@ namespace Example.Web
                       "~/Content/bootstrap.css",
                       "~/Content/font-awesome.css",
                       "~/Content/animate.css",
-                      "~/Content/style.css"));
+                      "~/Content/style.css",
+                      "~/Content/toastr.min.css",
+                      "~/Content/plugins/chosen/chosen.css",
+                      "~/Content/plugins/datepicker/datepicker3.css",
+                      "~/Content/plugins/dropzone/dropzone.css",
+                      "~/Content/plugins/summernote/summernote.css",
+                      "~/Content/plugins/summernote/summernote-bs3.css"));
 
             bundles.Add(new StyleBundle("~/Example/anonymous/styles").Include(
                 "~/Content/bootstrap.css",
@@ -28,7 +33,11 @@ namespace Example.Web
                 "~/Scripts/plugins/slimscroll/jquery.slimscroll.min.js",
                 "~/Scripts/inspinia.js",
                 "~/Scripts/plugins/pace/pace.min.js",
-                "~/Scripts/toastr.min.js"));
+                "~/Scripts/toastr.min.js",
+                "~/Scripts/plugins/chosen/chosen.jquery.js",
+                "~/Scripts/plugins/datepicker/bootstrap-datepicker.js",
+                "~/Scripts/plugins/dropzone/dropzone.js",
+                "~/Scripts/plugins/summernote/summernote.min.js"));
 
             bundles.Add(new ScriptBundle("~/Example/anonymous/scripts").Include(
                 "~/Scripts/jquery-{version}.js",

@@ -5889,3 +5889,472 @@ ERROR 2015-12-20 16:45:27,281 24470ms MvcApplication         Application_Error  
    at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
    at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
    at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ERROR 2015-12-20 21:44:38,231 531004ms MvcApplication         Application_Error  - controller: Example.Web.Controllers.ErrorController, action: Error
+ERROR 2015-12-20 21:44:38,298 531071ms MvcApplication         Application_Error  - System.ArgumentException: The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Edit(Int32)' in 'Example.Web.Controllers.TopicController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ERROR 2015-12-20 21:49:08,822 801595ms MvcApplication         Application_Error  - controller: Example.Web.Controllers.ErrorController, action: Error
+ERROR 2015-12-20 21:49:08,822 801595ms MvcApplication         Application_Error  - System.ArgumentException: The parameters dictionary contains a null entry for parameter 'id' of non-nullable type 'System.Int32' for method 'System.Web.Mvc.ActionResult Edit(Int32)' in 'Example.Web.Controllers.TopicController'. An optional parameter must be a reference type, a nullable type, or be declared as an optional parameter.
+Parameter name: parameters
+   at System.Web.Mvc.ActionDescriptor.ExtractParameterFromDictionary(ParameterInfo parameterInfo, IDictionary`2 parameters, MethodInfo methodInfo)
+   at System.Web.Mvc.ReflectedActionDescriptor.Execute(ControllerContext controllerContext, IDictionary`2 parameters)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionMethod(ControllerContext controllerContext, ActionDescriptor actionDescriptor, IDictionary`2 parameters)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.ActionInvocation.InvokeSynchronousActionMethod()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<BeginInvokeSynchronousActionMethod>b__39(IAsyncResult asyncResult, ActionInvocation innerInvokeState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`2.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethod(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3d()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.AsyncInvocationWithFilters.<>c__DisplayClass46.<InvokeActionMethodFilterAsynchronouslyRecursive>b__3f()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass33.<BeginInvokeActionMethodWithFilters>b__32(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeActionMethodWithFilters(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ERROR 2015-12-20 23:04:03,958 808988ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:04:20,566 825595ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:04:21,019 826048ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:04:22,453 827482ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:04:22,657 827686ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:04:22,839 827868ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:04:23,029 828058ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:04:26,961 831990ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:04:27,157 832186ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:04:27,342 832372ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:04:27,534 832564ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:06:31,126 46496ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:06:52,929 68299ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:06:53,959 69329ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:06:54,184 69554ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:06:54,387 69757ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:06:54,551 69921ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:06:54,740 70110ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:06:54,921 70291ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:07:24,568 99938ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:12:37,473 34711ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:13:13,291 70529ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:13:25,427 82665ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:13:47,576 104814ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:14:40,856 158094ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:14:58,442 175681ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:16:32,662 269901ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-20 23:17:39,718 336956ms MvcApplication         Delete             - SectionController.Delete
+System.InvalidOperationException: Collection was modified; enumeration operation may not execute.
+   at System.Collections.Generic.HashSet`1.Enumerator.MoveNext()
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 102
+   at Example.Services.Services.SectionService.removeRecursive(Section section) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 97
+   at Example.Services.Services.SectionService.Remove(Int32 id) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\SectionService.cs:line 123
+   at Example.Web.Controllers.SectionController.Delete(ExampleSection model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Controllers\SectionController.cs:line 99
+ERROR 2015-12-21 00:26:15,656 31856ms MvcApplication         Add                - MessageService.Add
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Example.Services.Services.MessageService.Add(ExampleMessage model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\MessageService.cs:line 44
+ERROR 2015-12-21 00:27:09,149 85350ms MvcApplication         Add                - MessageService.Add
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at Example.Services.Services.MessageService.Add(ExampleMessage model) in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Services\Services\MessageService.cs:line 44
+ERROR 2015-12-21 00:28:46,007 44355ms MvcApplication         Application_Error  - controller: Example.Web.Controllers.ErrorController, action: Error
+ERROR 2015-12-21 00:28:46,056 44404ms MvcApplication         Application_Error  - System.InvalidOperationException: Templates can be used only with field access, property access, single-dimension array index, or single-parameter custom indexer expressions.
+   at System.Web.Mvc.ModelMetadata.FromLambdaExpression[TParameter,TValue](Expression`1 expression, ViewDataDictionary`1 viewData, ModelMetadataProvider metadataProvider)
+   at System.Web.Mvc.ModelMetadata.FromLambdaExpression[TParameter,TValue](Expression`1 expression, ViewDataDictionary`1 viewData)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData, TemplateHelperDelegate templateHelper)
+   at System.Web.Mvc.Html.TemplateHelpers.TemplateFor[TContainer,TValue](HtmlHelper`1 html, Expression`1 expression, String templateName, String htmlFieldName, DataBoundControlMode mode, Object additionalViewData)
+   at System.Web.Mvc.Html.DisplayExtensions.DisplayFor[TModel,TValue](HtmlHelper`1 html, Expression`1 expression)
+   at ASP._Page_Views_Topic__MessagePartial_cshtml.Execute() in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Views\Topic\_MessagePartial.cshtml:line 10
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model)
+   at ASP._Page_Views_Topic_Detail_cshtml.Execute() in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Views\Topic\Detail.cshtml:line 79
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.StartPage.RunPage()
+   at System.Web.WebPages.StartPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ERROR 2015-12-21 01:28:13,971 13404ms MvcApplication         Application_Error  - controller: Example.Web.Controllers.ErrorController, action: Error
+ERROR 2015-12-21 01:28:14,003 13435ms MvcApplication         Application_Error  - System.NullReferenceException: Object reference not set to an instance of an object.
+   at ASP._Page_Views_Shared__TopNavigation_cshtml.Execute() in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Views\Shared\_TopNavigation.cshtml:line 17
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_Shared__Layout_cshtml.Execute() in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Views\Shared\_Layout.cshtml:line 14
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass3.<RenderPageCore>b__2(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageExecutingBase.WriteTo(TextWriter writer, HelperResult content)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)
+ERROR 2015-12-21 01:28:27,734 27166ms MvcApplication         Application_Error  - controller: Example.Web.Controllers.ErrorController, action: Error
+ERROR 2015-12-21 01:28:27,735 27167ms MvcApplication         Application_Error  - System.NullReferenceException: Object reference not set to an instance of an object.
+   at ASP._Page_Views_Shared__TopNavigation_cshtml.Execute() in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Views\Shared\_TopNavigation.cshtml:line 17
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.HtmlHelper.RenderPartialInternal(String partialViewName, ViewDataDictionary viewData, Object model, TextWriter writer, ViewEngineCollection viewEngineCollection)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName, Object model, ViewDataDictionary viewData)
+   at System.Web.Mvc.Html.PartialExtensions.Partial(HtmlHelper htmlHelper, String partialViewName)
+   at ASP._Page_Views_Shared__Layout_cshtml.Execute() in C:\Users\ilovetrancekrsk\Desktop\sfu_example\Example.Web\Views\Shared\_Layout.cshtml:line 14
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy()
+   at System.Web.Mvc.WebViewPage.ExecutePageHierarchy()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer)
+   at System.Web.WebPages.WebPageBase.<>c__DisplayClass3.<RenderPageCore>b__2(TextWriter writer)
+   at System.Web.WebPages.HelperResult.WriteTo(TextWriter writer)
+   at System.Web.WebPages.WebPageExecutingBase.WriteTo(TextWriter writer, HelperResult content)
+   at System.Web.WebPages.WebPageBase.Write(HelperResult result)
+   at System.Web.WebPages.WebPageBase.RenderSurrounding(String partialViewName, Action`1 body)
+   at System.Web.WebPages.WebPageBase.PopContext()
+   at System.Web.WebPages.WebPageBase.ExecutePageHierarchy(WebPageContext pageContext, TextWriter writer, WebPageRenderingBase startPage)
+   at System.Web.Mvc.RazorView.RenderView(ViewContext viewContext, TextWriter writer, Object instance)
+   at System.Web.Mvc.BuildManagerCompiledView.Render(ViewContext viewContext, TextWriter writer)
+   at System.Web.Mvc.ViewResultBase.ExecuteResult(ControllerContext context)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResult(ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultFilterRecursive(IList`1 filters, Int32 filterIndex, ResultExecutingContext preContext, ControllerContext controllerContext, ActionResult actionResult)
+   at System.Web.Mvc.ControllerActionInvoker.InvokeActionResultWithFilters(ControllerContext controllerContext, IList`1 filters, ActionResult actionResult)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<>c__DisplayClass2b.<BeginInvokeAction>b__1c()
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.<>c__DisplayClass21.<BeginInvokeAction>b__1e(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResult`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncControllerActionInvoker.EndInvokeAction(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecuteCore>b__1d(IAsyncResult asyncResult, ExecuteCoreState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecuteCore(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.<BeginExecute>b__15(IAsyncResult asyncResult, Controller controller)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Controller.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.Controller.System.Web.Mvc.Async.IAsyncController.EndExecute(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.<BeginProcessRequest>b__5(IAsyncResult asyncResult, ProcessRequestState innerState)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncVoid`1.CallEndDelegate(IAsyncResult asyncResult)
+   at System.Web.Mvc.Async.AsyncResultWrapper.WrappedAsyncResultBase`1.End()
+   at System.Web.Mvc.Async.AsyncResultWrapper.End[TResult](IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.Async.AsyncResultWrapper.End(IAsyncResult asyncResult, Object tag)
+   at System.Web.Mvc.MvcHandler.EndProcessRequest(IAsyncResult asyncResult)
+   at System.Web.Mvc.MvcHandler.System.Web.IHttpAsyncHandler.EndProcessRequest(IAsyncResult result)
+   at System.Web.HttpApplication.CallHandlerExecutionStep.System.Web.HttpApplication.IExecutionStep.Execute()
+   at System.Web.HttpApplication.ExecuteStep(IExecutionStep step, Boolean& completedSynchronously)

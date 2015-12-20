@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Linq;
 using Example.DAL;
 using Example.DAL.Entities;
 using Example.DAL.Repositories;
@@ -47,6 +49,21 @@ namespace Example.Services.Services
             topic.Title = model.Title;
             topic.Text = model.Text;
             topic.Status = model.Status;
+
+            if (model.Picture != null)
+            {
+                using (MemoryStream ms = new MemoryStream())
+                {
+                    model.Picture.InputStream.CopyTo(ms);
+                    if (topic.PictureId == null)
+                    {
+                        topic.Picture = new BinaryData();
+                    }
+                    topic.Picture.Data = ms.GetBuffer();
+                    topic.Picture.MimeType = model.Picture.ContentType;
+                }
+            }
+
             _topicRepository.Update(topic);
             _provider.SaveChanges();
         }
@@ -59,9 +76,9 @@ namespace Example.Services.Services
 
             if (topic.Messages != null)
             {
-                foreach (var message in topic.Messages)
+                while (topic.Messages.Any())
                 {
-                    _messageRepository.Delete(message.Id);
+                    _messageRepository.Delete(topic.Messages.First().Id);
                 }
             }
             _topicRepository.Delete(topic.Id);

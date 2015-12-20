@@ -1,0 +1,34 @@
+﻿@model Example.Services.Models.ExampleMessage
+
+@if (Model.IsMine)
+{
+    <div class="chat-element right">
+        <a href="#" class="pull-right">
+            @Html.Partial("_ProfileCircleImagePartial", Model.Author)
+        </a>
+        <div class="media-body text-right ">
+            <small class="pull-left">@Model.CreatedDate.ToShortTimeString()</small>
+            <strong>@Html.DisplayFor(model => model.Author.UserName)</strong>
+            <p class="m-b-xs">
+                @Html.DisplayFor(model => model.Text)
+            </p>
+            <small class="text-muted">@Model.CreatedDate.ToShortDateString()</small>
+        </div>
+    </div>
+}
+else
+{
+    <div class="chat-element">
+        <a href="#" class="pull-left">
+            @Html.Partial("_ProfileCircleImagePartial", Model.Author)
+        </a>
+        <div class="media-body ">
+            <small class="pull-right text-navy">@Model.CreatedDate.ToShortTimeString()</small>
+            <strong>@Html.DisplayFor(model => model.Author.UserName)</strong>
+            <p class="m-b-xs">
+                @Html.DisplayFor(model => model.Text)
+            </p>
+            <small class="text-muted">@Model.CreatedDate.ToShortDateString()</small>
+        </div>
+    </div>
+}

@@ -25,7 +25,7 @@
 
 <hr />
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Edit", "Topic", FormMethod.Post, new {id = "edit-form", enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -35,26 +35,63 @@
         @Html.HiddenFor(model => model.Status)
         @Html.HiddenFor(model => model.SectionId)
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.Title, htmlAttributes: new {@class = "control-label col-md-2"})
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Title, new {htmlAttributes = new {@class = "form-control"}})
-                @Html.ValidationMessageFor(model => model.Title, "", new {@class = "text-danger"})
+        <div class="row">
+            <div class="col-md-3">
+                @if (Model.PictureId.HasValue)
+                {
+                    <img src="@Url.Action("GetFile", "BinaryData", new {id = Model.PictureId.Value})"/>
+                }
+            </div>
+            <div class="col-md-9">
+                <div class="form-group">
+                    <div class="col-md-12">
+                        @Html.EditorFor(model => model.Title, new {htmlAttributes = new {@class = "form-control", paceholder = Html.DisplayNameFor(m => m.Text)}})
+                        @Html.ValidationMessageFor(model => model.Title, "", new {@class = "text-danger"})
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-12">
+                        <input type="file" name="Picture" id="Picture"/>
+                    </div>
+                </div>
             </div>
         </div>
+        
+        <hr/>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Text, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.Text, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+            <div class="col-md-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">@Html.LabelFor(model => model.Text)</div>
+                    <div class="ibox-content no-padding">
+                        <div id="text-content" class="summernote">
+                            @Html.Raw(Model.Text)
+                        </div>
+                    </div>
+                    @Html.HiddenFor(model => model.Text)
+                    @Html.ValidationMessageFor(model => model.Text, "", new { @class = "text-danger" })
+                </div>
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-primary" />
+                <a href="javascript:save();" class="btn btn-primary">Save</a>
             </div>
         </div>
     </div>
+}
+
+@section scripts
+{
+<script type="text/javascript">
+    $(document).ready(function(){
+        $('#text-content').summernote();
+    });
+    var save = function () {
+        var html = $('#text-content').code();//save HTML If you need(aHTML: array).
+        $('#Text').val(html); 
+        $('#edit-form').submit();
+    };
+</script>
 }

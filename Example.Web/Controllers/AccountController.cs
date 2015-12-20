@@ -151,8 +151,11 @@ namespace Example.Web.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+                    // Add "User" role after success registeration
+                    var currentUser = UserManager.FindByName(user.UserName);
+                    await UserManager.AddToRoleAsync(currentUser.Id, UserRoles.User);
 
+                    await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                     // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
                     // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
@@ -370,6 +373,10 @@ namespace Example.Web.Controllers
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);
                     if (result.Succeeded)
                     {
+                        // Add "User" role after success registeration
+                        var currentUser = UserManager.FindByName(user.UserName);
+                        await UserManager.AddToRoleAsync(currentUser.Id, UserRoles.User);
+
                         await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
                         return RedirectToLocal(returnUrl);
                     }

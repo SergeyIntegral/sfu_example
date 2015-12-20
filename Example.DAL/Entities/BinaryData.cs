@@ -7,8 +7,8 @@ namespace Example.DAL.Entities
     {
         public byte[] Data { get; set; }
 
-        public int? Generation { get; set; }
-
+        public string MimeType { get; set; }
+        
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
     }
