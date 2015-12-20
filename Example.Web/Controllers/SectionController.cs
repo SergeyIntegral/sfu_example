@@ -42,6 +42,7 @@ namespace Example.Web.Controllers
         }
 
         [System.Web.Mvc.HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Create([FromBody]ExampleSection model)
         {
             try
@@ -70,7 +71,8 @@ namespace Example.Web.Controllers
 		}
 
 		[System.Web.Mvc.HttpPost]
-		public ActionResult Edit([FromBody] ExampleSection model)
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit([FromBody] ExampleSection model)
 		{
 			if (ModelState.IsValid)
 			{
@@ -82,18 +84,19 @@ namespace Example.Web.Controllers
 				catch (Exception exception)
 				{
                     ExampleContext.Log.Error(exception);
-					return View(model);
+                    ModelState.AddModelError(string.Empty, "Unexpected error. Try again.");
 				}
-			}
-			return RedirectToAction("Index", "Forum", new { id = model.Id });
-		}
+            }
+            return View(model);
+        }
 
 		[System.Web.Mvc.HttpPost]
-		public JsonResult Delete([FromBody]ExampleSection model)
+        [ValidateAntiForgeryToken]
+        public JsonResult Delete([FromBody]ExampleSection model)
 		{
 			try
 			{
-				//_sectionService.Remove(model.Id);
+				_sectionService.Remove(model.Id);
 				return Json(new { state = true });
 			}
 			catch (Exception exception)

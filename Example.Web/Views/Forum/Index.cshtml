@@ -60,9 +60,6 @@
                                     @foreach (var exampleSection in Model.ChildSections)
                                     {
                                         <tr id="section_row_@exampleSection.Id">
-                                            <td class="project-status">
-                                                <span class="label label-primary">Active</span>
-                                            </td>
                                             <td class="project-title">
                                                 @Html.ActionLink(exampleSection.Title, "Index", new { id = exampleSection.Id })
                                                 <br>
@@ -110,12 +107,29 @@
                     <tbody>
                         @foreach (var exampleTopic in Model.Topics)
                         {
-                            <tr>
+                            <tr id="topic_row_@exampleTopic.Id">
                                 <td class="project-status">
-                                    <span class="label label-primary">Active</span>
+                                    @switch (exampleTopic.Status)
+                                    {
+                                        case TopicStatus.Draft:
+                                            {
+                                                <span class="label label-danger">@exampleTopic.Status.ToString()</span>
+                                                break;
+                                            }
+                                        case TopicStatus.NotApproved:
+                                            {
+                                                <span class="label label-warning">@exampleTopic.Status.ToString()</span>
+                                                break;
+                                            }
+                                        default:
+                                            {
+                                                <span class="label label-primary">@exampleTopic.Status.ToString()</span>
+                                                break;
+                                            }
+                                    }
                                 </td>
                                 <td class="project-title">
-                                    <a href="@Url.Action("Index", "Topic", new {sectionId = exampleTopic.Id})">@exampleTopic.Title</a>
+                                    <a href="@Url.Action("Detail", "Topic", new {id = exampleTopic.Id})">@exampleTopic.Title</a>
                                     <br>
                                     <small>@exampleTopic.CreatedDate.ToString("dd-MM-yyyy hh:mm:ss")</small>
                                 </td>

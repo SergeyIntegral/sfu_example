@@ -89,6 +89,10 @@
     <Compile Include="Migrations\201512141353573_ChangePictureIdTypeAsNullable.Designer.cs">
       <DependentUpon>201512141353573_ChangePictureIdTypeAsNullable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201512200800126_AddTopicToMessage.cs" />
+    <Compile Include="Migrations\201512200800126_AddTopicToMessage.Designer.cs">
+      <DependentUpon>201512200800126_AddTopicToMessage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\Base\GuidRepository.cs" />
@@ -125,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201512141353573_ChangePictureIdTypeAsNullable.resx">
       <DependentUpon>201512141353573_ChangePictureIdTypeAsNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512200800126_AddTopicToMessage.resx">
+      <DependentUpon>201512200800126_AddTopicToMessage.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

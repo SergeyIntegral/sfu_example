@@ -80,7 +80,17 @@ namespace Example.DAL
                 .WithMany(x => x.ChildSections)
                 .Map(x => x.MapKey("Parent_Id"));
 
+            //modelBuilder.Entity<Topic>()
+            //    .HasRequired(t => t.Author)
+            //    .WithMany()
+            //    .WillCascadeOnDelete(false);
+
+            //modelBuilder.Entity<Message>()
+            //    .HasRequired(m => m.Author)
+            //    .WithMany()
+            //    .WillCascadeOnDelete(false);
+
             base.OnModelCreating(modelBuilder);
         }
-	}
+    }
 }

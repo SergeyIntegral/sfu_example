@@ -13,6 +13,10 @@ namespace Example.DAL.Entities
         [Required]
         public string Text { get; set; }
 
+        [Required]
+        public int TopicId { get; set; }
+        public virtual Topic Topic { get; set; }
+
         public DateTime CreatedDate { get; set; }
         public DateTime ModifiedDate { get; set; }
     }

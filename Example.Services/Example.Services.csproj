@@ -122,6 +122,7 @@
     <Compile Include="Context\ExampleContext.cs" />
     <Compile Include="Managers\ExampleSignInManager.cs" />
     <Compile Include="Managers\ExampleUserManager.cs" />
+    <Compile Include="Models\ExampleMessage.cs" />
     <Compile Include="Models\ExampleSection.cs" />
     <Compile Include="Models\ExampleTopic.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -213,6 +213,7 @@
     <Compile Include="Controllers\Abstract\BaseController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
+    <Compile Include="Controllers\MessageController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -334,9 +335,12 @@
     <Content Include="Views\Section\Create.cshtml" />
     <Content Include="Scripts\toastr.min.js" />
     <Content Include="Views\Topic\Create.cshtml" />
+    <Content Include="Views\Topic\Detail.cshtml" />
+    <Content Include="Views\Topic\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Message\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
