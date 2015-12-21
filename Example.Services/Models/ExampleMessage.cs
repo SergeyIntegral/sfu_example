@@ -38,7 +38,7 @@ namespace Example.Services.Models
             CreatedDate = entity.CreatedDate;
             ModifiedDate = entity.ModifiedDate;
             Author = entity.Author;
-            IsMine = ExampleContext.Current.User.Id == entity.AuthorId;
+            IsMine = ExampleContext.Current.User != null && ExampleContext.Current.User.Id == entity.AuthorId;
             TopicId = entity.TopicId;
             Topic = new ExampleTopic(entity.Topic);
         }
@@ -50,7 +50,7 @@ namespace Example.Services.Models
             CreatedDate = entity.CreatedDate;
             ModifiedDate = entity.ModifiedDate;
             Author = entity.Author;
-            IsMine = ExampleContext.Current.User.Id == entity.AuthorId;
+            IsMine = ExampleContext.Current.User != null && ExampleContext.Current.User.Id == entity.AuthorId;
             TopicId = topic.Id;
             Topic = topic;
         }

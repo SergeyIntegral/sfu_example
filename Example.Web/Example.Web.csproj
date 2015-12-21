@@ -215,6 +215,7 @@
     <Compile Include="Controllers\BinaryDataController.cs" />
     <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\MessageController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Controllers\SectionController.cs" />
     <Compile Include="Controllers\ForumController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -229,6 +230,7 @@
     <Compile Include="Infrastructure\Filters\NoCacheAttribute.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BreadCrumbItem.cs" />
+    <Compile Include="Models\ExampleUserViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -376,6 +378,7 @@
     <Content Include="Views\Shared\_ProfileCircleImagePartial.cshtml" />
     <Content Include="Views\Forum\_TopicRowPartial.cshtml" />
     <Content Include="Views\Forum\_SectionRowPartial.cshtml" />
+    <Content Include="Views\Profile\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
