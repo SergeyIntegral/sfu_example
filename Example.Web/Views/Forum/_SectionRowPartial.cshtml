@@ -6,12 +6,12 @@
         <br>
         <small>@Model.CreatedDate.ToString("dd-MM-yyyy hh:mm:ss")</small>
     </td>
-    @if (User.CanManageSection())
-    {
-        <td class="project-actions">
+    <td class="project-actions">
+        @if (User.CanManageSection())
+        {
             <a href="@Url.Action("Edit", "Section", new {id = Model.Id})" class="btn btn-white btn-sm"><i class="fa fa-pencil"></i> Edit </a>
             <a href="javascript:confirmRemoving('@Model.Title', @Model.Id, 'section')" class="btn btn-white btn-sm"><i class="fa fa-remove"></i> Delete </a>
-        </td>
-    }
+        }
+    </td>
 </tr>
 
